@@ -39,6 +39,7 @@ class Instrumented extends Component {
   transition() {
     const { stateTransitions } = this.state;
     if (stateTransitions && stateTransitions.length) {
+      this.log("(state change) ", stateTransitions[0]);
       this.setState({
         state: stateTransitions[0],
         stateTransitions: stateTransitions.slice(1)
