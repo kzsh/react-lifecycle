@@ -12,11 +12,13 @@ class App extends Component {
     });
   }
   render() {
-    console.log(this.state.render);
     return (
       <div className="App">
-        <Instrumented name={`Instrumented ${this.state.render}`}>
-          <Instrumented name="inner 1" />
+        <Instrumented name="-1">
+          <Instrumented name="----1" stateTransitions={[1, 2]} />
+          <Instrumented name="----2" stateTransitions={[1, 2]}>
+            <Instrumented name="--------1" stateTransitions={[1, 2]} />
+          </Instrumented>
         </Instrumented>
       </div>
     );
